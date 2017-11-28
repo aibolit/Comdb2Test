@@ -18,7 +18,16 @@ class BootStrap {
 
 
         def b = new User(name: 'ijk').save()
+        println b
 
+        def c = new User(name: 'mno')
+        c.save(flush: true)
+
+
+        println "> test deletion"
+        println "> byId:${User.get(c.id)}, byName:${User.findByName('mno')}"
+        println "> delete ${User.findByName('mno').delete(flush:true)}"
+        println "> find again ${User.get(c.id)}"
 
     }
     def destroy = {
